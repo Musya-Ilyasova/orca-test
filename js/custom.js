@@ -10,10 +10,20 @@ function throttleScroll(e) {
   isScrolling = true;
 }
 document.addEventListener("DOMContentLoaded", scrolling, false);
-let featureCard = document.querySelectorAll(".feature-card");
+let featureCardOdd = document.querySelectorAll(".feature-card:nth-child(odd)");
+let featureCardEven = document.querySelectorAll(".feature-card:nth-child(even)");
 function scrolling(e) {
-  featureCard.forEach((element) => {
-    if (isFullyVisible(element)) {
+  featureCardOdd.forEach((element) => {
+    if (isFullyVisibleOdd(element)) {
+      element.querySelector(".feature-card__image").classList.add("is-active");
+      element.querySelector(".feature-card__content").classList.add("is-active");
+    } else {
+      element.querySelector(".feature-card__image").classList.remove("is-active");
+      element.querySelector(".feature-card__content").classList.remove("is-active");
+    }
+  });
+  featureCardEven.forEach((element) => {
+    if (isFullyVisibleEven(element)) {
       element.querySelector(".feature-card__image").classList.add("is-active");
       element.querySelector(".feature-card__content").classList.add("is-active");
     } else {
@@ -22,8 +32,16 @@ function scrolling(e) {
     }
   });
 }
-function isFullyVisible(el) {
+function isFullyVisibleOdd(el) {
   let elementBoundary = el.getBoundingClientRect();
   let top = elementBoundary.top;
   return ((top <= 100));
 }
+
+function isFullyVisibleEven(el) {
+  let elementBoundary = el.getBoundingClientRect();
+  let top = elementBoundary.top;
+  return ((top <= 190));
+}
+
+
