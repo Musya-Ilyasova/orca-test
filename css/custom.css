@@ -48,7 +48,7 @@
     transition: top 1.8s ease;
   }
   .feature-card__image.is-active{
-    top: -97vh;
+    top: -125vh;
   }
   .feature-card__image img{
     object-fit: contain;
@@ -61,7 +61,7 @@
   }
   .feature-card__image--top {
     padding-top: 20px;
-    top: 68vh;
+    top: 83vh;
     transition: top 1.1s ease;
   }
   .feature-card__image--top.is-active { 
